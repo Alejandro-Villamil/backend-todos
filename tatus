@@ -1,0 +1,420 @@
+[33mcommit 823d29badde0b6b0f0d1109f4002daad5d1293d9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Alejandro Villamil <alejovilla.s75@gmail.com>
+Date:   Sun Mar 2 11:33:20 2025 -0500
+
+    first commit
+
+[1mdiff --git a/.env b/.env[m
+[1mnew file mode 100644[m
+[1mindex 0000000..16c2946[m
+[1m--- /dev/null[m
+[1m+++ b/.env[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32mDATABASE_HOST=localhost[m
+[32m+[m[32mDATABASE_NAME=mydatabase[m
+[32m+[m[32mDATABASE_USER=user12[m
+[32m+[m[32mDATABASE_PASSWORD=pass12[m
+[32m+[m[32mDATABASE_PORT=5432[m
+[32m+[m[32mAPP_NAME="Full Stack To Do App"[m
+\ No newline at end of file[m
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/.python-version b/.python-version[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0c7d5f5[m
+[1m--- /dev/null[m
+[1m+++ b/.python-version[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m3.11.4[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/__pycache__/config.cpython-312.pyc b/__pycache__/config.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8c4cf00[m
+Binary files /dev/null and b/__pycache__/config.cpython-312.pyc differ
+[1mdiff --git a/__pycache__/crud.cpython-312.pyc b/__pycache__/crud.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e6c4048[m
+Binary files /dev/null and b/__pycache__/crud.cpython-312.pyc differ
+[1mdiff --git a/__pycache__/database.cpython-312.pyc b/__pycache__/database.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..95d7139[m
+Binary files /dev/null and b/__pycache__/database.cpython-312.pyc differ
+[1mdiff --git a/__pycache__/main.cpython-312.pyc b/__pycache__/main.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8f65740[m
+Binary files /dev/null and b/__pycache__/main.cpython-312.pyc differ
+[1mdiff --git a/__pycache__/models.cpython-312.pyc b/__pycache__/models.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..409b196[m
+Binary files /dev/null and b/__pycache__/models.cpython-312.pyc differ
+[1mdiff --git a/__pycache__/schemas.cpython-312.pyc b/__pycache__/schemas.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..79957a5[m
+Binary files /dev/null and b/__pycache__/schemas.cpython-312.pyc differ
+[1mdiff --git a/ajustes manuales.txt b/ajustes manuales.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..68d23c9[m
+[1m--- /dev/null[m
+[1m+++ b/ajustes manuales.txt[m	
+[36m@@ -0,0 +1,60 @@[m
+[32m+[m[32mes necesario poetry shell antes de ejecutar el main[m
+[32m+[m[32mes necesario crear carpeta routers/todos.py[m
+[32m+[m
+[32m+[m
+[32m+[m[32mPARA EL ERROR:[m
+[32m+[m[32malembic upgrade head[m
+[32m+[m[32mTraceback (most recent call last):[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/bin/alembic", line 8, in <module>[m
+[32m+[m[32m    sys.exit(main())[m
+[32m+[m[32m             ^^^^^^[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/config.py", line 636, in main[m
+[32m+[m[32m    CommandLine(prog=prog).main(argv=argv)[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/config.py", line 626, in main[m
+[32m+[m[32m    self.run_cmd(cfg, options)[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/config.py", line 603, in run_cmd[m
+[32m+[m[32m    fn([m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/command.py", line 406, in upgrade[m
+[32m+[m[32m    script.run_env()[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/script/base.py", line 586, in run_env[m
+[32m+[m[32m    util.load_python_file(self.dir, "env.py")[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/util/pyfiles.py", line 95, in load_python_file[m
+[32m+[m[32m    module = load_module_py(module_id, path)[m
+[32m+[m[32m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/util/pyfiles.py", line 113, in load_module_py[m
+[32m+[m[32m    spec.loader.exec_module(module)  # type: ignore[m
+[32m+[m[32m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32m  File "<frozen importlib._bootstrap_external>", line 995, in exec_module[m
+[32m+[m[32m  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed[m
+[32m+[m[32m  File "/mnt/c/Users/alejo/OneDrive/Escritorio/GEN AI - LLM/36/list/alembic/env.py", line 81, in <module>[m
+[32m+[m[32m    run_migrations_online()[m
+[32m+[m[32m  File "/mnt/c/Users/alejo/OneDrive/Escritorio/GEN AI - LLM/36/list/alembic/env.py", line 63, in run_migrations_online[m
+[32m+[m[32m    connectable = engine_from_config([m
+[32m+[m[32m                  ^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 823, in engine_from_config[m
+[32m+[m[32m    return create_engine(url, **options)[m
+[32m+[m[32m           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32m  File "<string>", line 2, in create_engine[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned[m
+[32m+[m[32m    return fn(*args, **kwargs)  # type: ignore[no-any-return][m
+[32m+[m[32m           ^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 602, in create_engine[m
+[32m+[m[32m    dbapi = dbapi_meth(**dbapi_args)[m
+[32m+[m[32m            ^^^^^^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 696, in import_dbapi[m
+[32m+[m[32m    import psycopg2[m
+[32m+[m[32m  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/psycopg2/__init__.py", line 51, in <module>[m
+[32m+[m[32m    from psycopg2._psycopg import (                     # noqa[m
+[32m+[m[32mImportError: libpq.so.5: cannot open shared object file: No such file or directory[m
+[32m+[m
+[32m+[m[32mUSAR:[m[41m [m
+[32m+[m[32m¡Bien! libpq.so sí está en tu sistema, pero parece que está instalada a través de Linuxbrew, lo que podría estar causando que ldconfig no la detecte correctamente.[m
+[32m+[m[32m🔧 1️⃣ Agregar la ruta de libpq.so a ldconfig[m
+[32m+[m
+[32m+[m[32mEjecuta lo siguiente para asegurarte de que ldconfig sepa dónde está la librería:[m
+[32m+[m
+[32m+[m[32mecho "/home/linuxbrew/.linuxbrew/lib/postgresql@14" | sudo tee /etc/ld.so.conf.d/postgresql.conf[m
+[32m+[m[32msudo ldconfig[m
+[32m+[m[32mldconfig -p | grep libpq[m
+[32m+[m
+[32m+[m[32mSi todo funciona bien, ldconfig -p debería ahora listar libpq.so.[m
+\ No newline at end of file[m
+[1mdiff --git a/alembic.ini b/alembic.ini[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2395389[m
+[1m--- /dev/null[m
+[1m+++ b/alembic.ini[m
+[36m@@ -0,0 +1,119 @@[m
+[32m+[m[32m# A generic, single database configuration.[m
+[32m+[m
+[32m+[m[32m[alembic][m
+[32m+[m[32m# path to migration scripts[m
+[32m+[m[32m# Use forward slashes (/) also on windows to provide an os agnostic path[m
+[32m+[m[32mscript_location = alembic[m
+[32m+[m
+[32m+[m[32m# template used to generate migration file names; The default value is %%(rev)s_%%(slug)s[m
+[32m+[m[32m# Uncomment the line below if you want the files to be prepended with date and time[m
+[32m+[m[32m# see https://alembic.sqlalchemy.org/en/latest/tutorial.html#editing-the-ini-file[m
+[32m+[m[32m# for all available tokens[m
+[32m+[m[32m# file_template = %%(year)d_%%(month).2d_%%(day).2d_%%(hour).2d%%(minute).2d-%%(rev)s_%%(slug)s[m
+[32m+[m
+[32m+[m[32m# sys.path path, will be prepended to sys.path if present.[m
+[32m+[m[32m# defaults to the current working directory.[m
+[32m+[m[32mprepend_sys_path = .[m
+[32m+[m
+[32m+[m[32m# timezone to use when rendering the date within the migration file[m
+[32m+[m[32m# as well as the filename.[m
+[32m+[m[32m# If specified, requires the python>=3.9 or backports.zoneinfo library and tzdata library.[m
+[32m+[m[32m# Any required deps can installed by adding `alembic[tz]` to the pip requirements[m
+[32m+[m[32m# string value is passed to ZoneInfo()[m
+[32m+[m[32m# leave blank for localtime[m
+[32m+[m[32m# timezone =[m
+[32m+[m
+[32m+[m[32m# max length of characters to apply to the "slug" field[m
+[32m+[m[32m# truncate_slug_length = 40[m
+[32m+[m
+[32m+[m[32m# set to 'true' to run the environment during[m
+[32m+[m[32m# the 'revision' command, regardless of autogenerate[m
+[32m+[m[32m# revision_environment = false[m
+[32m+[m
+[32m+[m[32m# set to 'true' to allow .pyc and .pyo files without[m
+[32m+[m[32m# a source .py file to be detected as revisions in the[m
+[32m+[m[32m# versions/ directory[m
+[32m+[m[32m# sourceless = false[m
+[32m+[m
+[32m+[m[32m# version location specification; This defaults[m
+[32m+[m[32m# to alembic/versions.  When using multiple version[m
+[32m+[m[32m# directories, initial revisions must be specified with --version-path.[m
+[32m+[m[32m# The path separator used here should be the separator specified by "version_path_separator" below.[m
+[32m+[m[32m# version_locations = %(here)s/bar:%(here)s/bat:alembic/versions[m
+[32m+[m
+[32m+[m[32m# version path separator; As mentioned above, this is the character used to split[m
+[32m+[m[32m# version_locations. The default within new alembic.ini files is "os", which uses os.pathsep.[m
+[32m+[m[32m# If this key is omitted entirely, it falls back to the legacy behavior of splitting on spaces and/or commas.[m
+[32m+[m[32m# Valid values for version_path_separator are:[m
+[32m+[m[32m#[m
+[32m+[m[32m# version_path_separator = :[m
+[32m+[m[32m# version_path_separator = ;[m
+[32m+[m[32m# version_path_separator = space[m
+[32m+[m[32m# version_path_separator = newline[m
+[32m+[m[32m#[m
+[32m+[m[32m# Use os.pathsep. Default configuration used for new projects.[m
+[32m+[m[32mversion_path_separator = os[m
+[32m+[m
+[32m+[m[32m# set to 'true' to search source files recursively[m
+[32m+[m[32m# in each "version_locations" directory[m
+[32m+[m[32m# new in Alembic version 1.10[m
+[32m+[m[32m# recursive_version_locations = false[m
+[32m+[m
+[32m+[m[32m# the output encoding used when revision files[m
+[32m+[m[32m# are written from script.py.mako[m
+[32m+[m[32m# output_encoding = utf-8[m
+[32m+[m
+[32m+[m[32msqlalchemy.url = driver://user12:pass12@localhost/mydatabase[m
+[32m+[m
+[32m+[m
+[32m+[m[32m[post_write_hooks][m
+[32m+[m[32m# post_write_hooks defines scripts or Python functions that are run[m
+[32m+[m[32m# on newly generated revision scripts.  See the documentation for further[m
+[32m+[m[32m# detail and examples[m
+[32m+[m
+[32m+[m[32m# format using "black" - use the console_scripts runner, against the "black" entrypoint[m
+[32m+[m[32m# hooks = black[m
+[32m+[m[32m# black.type = console_scripts[m
+[32m+[m[32m# black.entrypoint = black[m
+[32m+[m[32m# black.options = -l 79 REVISION_SCRIPT_FILENAME[m
+[32m+[m
+[32m+[m[32m# lint with attempts to fix using "ruff" - use the exec runner, execute a binary[m
+[32m+[m[32m# hooks = ruff[m
+[32m+[m[32m# ruff.type = exec[m
+[32m+[m[32m# ruff.executable = %(here)s/.venv/bin/ruff[m
+[32m+[m[32m# ruff.options = --fix REVISION_SCRIPT_FILENAME[m
+[32m+[m
+[32m+[m[32m# Logging configuration[m
+[32m+[m[32m[loggers][m
+[32m+[m[32mkeys = root,sqlalchemy,alembic[m
+[32m+[m
+[32m+[m[32m[handlers][m
+[32m+[m[32mkeys = console[m
+[32m+[m
+[32m+[m[32m[formatters][m
+[32m+[m[32mkeys = generic[m
+[32m+[m
+[32m+[m[32m[logger_root][m
+[32m+[m[32mlevel = WARNING[m
+[32m+[m[32mhandlers = console[m
+[32m+[m[32mqualname =[m
+[32m+[m
+[32m+[m[32m[logger_sqlalchemy][m
+[32m+[m[32mlevel = WARNING[m
+[32m+[m[32mhandlers =[m
+[32m+[m[32mqualname = sqlalchemy.engine[m
+[32m+[m
+[32m+[m[32m[logger_alembic][m
+[32m+[m[32mlevel = INFO[m
+[32m+[m[32mhandlers =[m
+[32m+[m[32mqualname = alembic[m
+[32m+[m
+[32m+[m[32m[handler_console][m
+[32m+[m[32mclass = StreamHandler[m
+[32m+[m[32margs = (sys.stderr,)[m
+[32m+[m[32mlevel = NOTSET[m
+[32m+[m[32mformatter = generic[m
+[32m+[m
+[32m+[m[32m[formatter_generic][m
+[32m+[m[32mformat = %(levelname)-5.5s [%(name)s] %(message)s[m
+[32m+[m[32mdatefmt = %H:%M:%S[m
+[1mdiff --git a/alembic/README b/alembic/README[m
+[1mnew file mode 100644[m
+[1mindex 0000000..98e4f9c[m
+[1m--- /dev/null[m
+[1m+++ b/alembic/README[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32mGeneric single-database configuration.[m
+\ No newline at end of file[m
+[1mdiff --git a/alembic/__pycache__/env.cpython-312.pyc b/alembic/__pycache__/env.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9ef47b1[m
+Binary files /dev/null and b/alembic/__pycache__/env.cpython-312.pyc differ
+[1mdiff --git a/alembic/env.py b/alembic/env.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d3b0b4c[m
+[1m--- /dev/null[m
+[1m+++ b/alembic/env.py[m
+[36m@@ -0,0 +1,81 @@[m
+[32m+[m[32mimport os[m
+[32m+[m[32mfrom logging.config import fileConfig[m
+[32m+[m
+[32m+[m[32mfrom sqlalchemy import engine_from_config[m
+[32m+[m[32mfrom sqlalchemy import pool[m
+[32m+[m
+[32m+[m[32mfrom alembic import context[m
+[32m+[m[32mfrom dotenv import load_dotenv[m
+[32m+[m[32mload_dotenv()[m
+[32m+[m
+[32m+[m[32m# this is the Alembic Config object, which provides[m
+[32m+[m[32m# access to the values within the .ini file in use.[m
+[32m+[m[32mconfig = context.config[m
+[32m+[m[32mconfig.set_main_option("sqlalchemy.url", f"postgresql://{os.environ['DATABASE_USER']}:@{os.environ['DATABASE_HOST']}:{os.environ['DATABASE_PORT']}/{os.environ['DATABASE_NAME']}")[m
+[32m+[m[32m# Interpret the config file for Python logging.[m
+[32m+[m[32m# This line sets up loggers basically.[m
+[32m+[m[32mif config.config_file_name is not None:[m
+[32m+[m[32m    fileConfig(config.config_file_name)[m
+[32m+[m
+[32m+[m[32m# add your model's MetaData object here[m
+[32m+[m[32m# for 'autogenerate' support[m
+[32m+[m[32m# from myapp import mymodel[m
+[32m+[m[32m# target_metadata = mymodel.Base.metadata[m
+[32m+[m[32mtarget_metadata = None[m
+[32m+[m
+[32m+[m[32m# other values from the config, defined by the needs of env.py,[m
+[32m+[m[32m# can be acquired:[m
+[32m+[m[32m# my_important_option = config.get_main_option("my_important_option")[m
+[32m+[m[32m# ... etc.[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef run_migrations_offline() -> None:[m
+[32m+[m[32m    """Run migrations in 'offline' mode.[m
+[32m+[m
+[32m+[m[32m    This configures the context with just a URL[m
+[32m+[m[32m    and not an Engine, though an Engine is acceptable[m
+[32m+[m[32m    here as well.  By skipping the Engine creation[m
+[32m+[m[32m    we don't even need a DBAPI to be available.[m
+[32m+[m
+[32m+[m[32m    Calls to context.execute() here emit the given string to the[m
+[32m+[m[32m    script output.[m
+[32m+[m
+[32m+[m[32m    """[m
+[32m+[m[32m    url = config.get_main_option("sqlalchemy.url")[m
+[32m+[m[32m    context.configure([m
+[32m+[m[32m        url=url,[m
+[32m+[m[32m        target_metadata=target_metadata,[m
+[32m+[m[32m        literal_binds=True,[m
+[32m+[m[32m        dialect_opts={"paramstyle": "named"},[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    with context.begin_transaction():[m
+[32m+[m[32m        context.run_migrations()[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef run_migrations_online() -> None:[m
+[32m+[m[32m    """Run migrations in 'online' mode.[m
+[32m+[m
+[32m+[m[32m    In this scenario we need to create an Engine[m
+[32m+[m[32m    and associate a connection with the context.[m
+[32m+[m
+[32m+[m[32m    """[m
+[32m+[m[32m    connectable = engine_from_config([m
+[32m+[m[32m        config.get_section(config.config_ini_section, {}),[m
+[32m+[m[32m        prefix="sqlalchemy.",[m
+[32m+[m[32m        poolclass=pool.NullPool,[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    with connectable.connect() as connection:[m
+[32m+[m[32m        context.configure([m
+[32m+[m[32m            connection=connection, target_metadata=target_metadata[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32m        with context.begin_transaction():[m
+[32m+[m[32m            context.run_migrations()[m
+[32m+[m
+[32m+[m
+[32m+[m[32mif context.is_offline_mode():[m
+[32m+[m[32m    run_migrations_offline()[m
+[32m+[m[32melse:[m
+[32m+[m[32m    run_migrations_online()[m
+[1mdiff --git a/alembic/script.py.mako b/alembic/script.py.mako[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fbc4b07[m
+[1m--- /dev/null[m
+[1m+++ b/alembic/script.py.mako[m
+[36m@@ -0,0 +1,26 @@[m
+[32m+[m[32m"""${message}[m
+[32m+[m
+[32m+[m[32mRevision ID: ${up_revision}[m
+[32m+[m[32mRevises: ${down_revision | comma,n}[m
+[32m+[m[32mCreate Date: ${create_date}[m
+[32m+[m
+[32m+[m[32m"""[m
+[32m+[m[32mfrom typing import Sequence, Union[m
+[32m+[m
+[32m+[m[32mfrom alembic import op[m
+[32m+[m[32mimport sqlalchemy as sa[m
+[32m+[m[32m${imports if imports else ""}[m
+[32m+[m
+[32m+[m[32m# revision identifiers, used by Alembic.[m
+[32m+[m[32mrevision: str = ${repr(up_revision)}[m
+[32m+[m[32mdown_revision: Union[str, None] = ${repr(down_revision)}[m
+[32m+[m[32mbranch_labels: Union[str, Sequence[str], None] = ${repr(branch_labels)}[m
+[32m+[m[32mdepends_on: Union[str, Sequence[str], None] = ${repr(depends_on)}[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef upgrade() -> None:[m
+[32m+[m[32m    ${upgrades if upgrades else "pass"}[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef downgrade() -> None:[m
+[32m+[m[32m    ${downgrades if downgrades else "pass"}[m
+[1mdiff --git a/alembic/versions/5a597a48f4c7_create_todos_table.py b/alembic/versions/5a597a48f4c7_create_todos_table.py[m
+[1mnew file mode 100644[m
+[1mindex 0000000..51305d4[m
+[1m--- /dev/null[m
+[1m+++ b/alembic/versions/5a597a48f4c7_create_todos_table.py[m
+[36m@@ -0,0 +1,31 @@[m
+[32m+[m[32m"""create todos table[m
+[32m+[m
+[32m+[m[32mRevision ID: 5a597a48f4c7[m
+[32m+[m[32mRevises:[m[41m [m
+[32m+[m[32mCreate Date: 2025-02-27 19:47:39.512972[m
+[32m+[m
+[32m+[m[32m"""[m
+[32m+[m[32mfrom typing import Sequence, Union[m
+[32m+[m
+[32m+[m[32mfrom alembic import op[m
+[32m+[m[32mimport sqlalchemy as sa[m
+[32m+[m
+[32m+[m
+[32m+[m[32m# revision identifiers, used by Alembic.[m
+[32m+[m[32mrevision: str = '5a597a48f4c7'[m
+[32m+[m[32mdown_revision: Union[str, None] = None[m
+[32m+[m[32mbranch_labels: Union[str, Sequence[str], None] = None[m
+[32m+[m[32mdepends_on: Union[str, Sequence[str], None] = None[m
+[32m+[m
+[32m+[m
+[32m+[m[32mdef upgrade():[m
+[32m+[m[32m    op.execute("""[m
+[32m+[m[32m    create table todos([m
+[32m+[m[32m        id bigserial primary key,[m
+[32m+[m[32m        name text,[m
+[32m+[m[32m        completed boolean not null default false[m
+[32m+[m[32m    )[m
+[32m+[m[32m    """)[m
+[32m+[m
+[32m+[m[32mdef downgrade():[m
+[32m+[m[32m    op.execute("drop table todos;")[m
+[1mdiff --git a/alembic/versions/__pycache__/5a597a48f4c7_create_todos_table.cpython-312.pyc b/alembic/versions/__pycache__/5a597a48f4c7_create_todos_table.cpython-312.pyc[m
+[1mnew file mode 100644[m
+[1mindex 0000000..dbd2a7d[m
+Binary files /dev/null and b/alembic/versions/__pycache__/5a597a48f4c7_create_todos_table.cpyth
