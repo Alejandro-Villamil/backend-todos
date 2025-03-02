@@ -1,0 +1,60 @@
+es necesario poetry shell antes de ejecutar el main
+es necesario crear carpeta routers/todos.py
+
+
+PARA EL ERROR:
+alembic upgrade head
+Traceback (most recent call last):
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/bin/alembic", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/config.py", line 636, in main
+    CommandLine(prog=prog).main(argv=argv)
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/config.py", line 626, in main
+    self.run_cmd(cfg, options)
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/config.py", line 603, in run_cmd
+    fn(
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/command.py", line 406, in upgrade
+    script.run_env()
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/script/base.py", line 586, in run_env
+    util.load_python_file(self.dir, "env.py")
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/util/pyfiles.py", line 95, in load_python_file
+    module = load_module_py(module_id, path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/alembic/util/pyfiles.py", line 113, in load_module_py
+    spec.loader.exec_module(module)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/mnt/c/Users/alejo/OneDrive/Escritorio/GEN AI - LLM/36/list/alembic/env.py", line 81, in <module>
+    run_migrations_online()
+  File "/mnt/c/Users/alejo/OneDrive/Escritorio/GEN AI - LLM/36/list/alembic/env.py", line 63, in run_migrations_online
+    connectable = engine_from_config(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 823, in engine_from_config
+    return create_engine(url, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 602, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/sqlalchemy/dialects/postgresql/psycopg2.py", line 696, in import_dbapi
+    import psycopg2
+  File "/home/alejandro/.cache/pypoetry/virtualenvs/list-aq0qdM3R-py3.12/lib/python3.12/site-packages/psycopg2/__init__.py", line 51, in <module>
+    from psycopg2._psycopg import (                     # noqa
+ImportError: libpq.so.5: cannot open shared object file: No such file or directory
+
+USAR: 
+¡Bien! libpq.so sí está en tu sistema, pero parece que está instalada a través de Linuxbrew, lo que podría estar causando que ldconfig no la detecte correctamente.
+🔧 1️⃣ Agregar la ruta de libpq.so a ldconfig
+
+Ejecuta lo siguiente para asegurarte de que ldconfig sepa dónde está la librería:
+
+echo "/home/linuxbrew/.linuxbrew/lib/postgresql@14" | sudo tee /etc/ld.so.conf.d/postgresql.conf
+sudo ldconfig
+ldconfig -p | grep libpq
+
+Si todo funciona bien, ldconfig -p debería ahora listar libpq.so.
